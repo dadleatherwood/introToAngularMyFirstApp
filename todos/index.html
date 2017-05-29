@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html ng-app="todoApp">
- <head>
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-   <title></title>
- </head>
- <body ng-controller="todoCtrl">
-   {{test}}
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title></title>
+  <style media="screen">
+    .strike {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
-<script src="app.js" charset="utf-8"></script>
-<script src="myCtrl.js" charset="utf-8"></script>
+<body ng-controller="todoCtrl">
+  <input type="text" ng-model="newTodo" />
+  <button type="button" ng-click="addTodo(newTodo)">Add Todo</button>
+  <ul ng-repeat="todo in todos; track by $index">
+    <li ng-class="{strike: clicked}">{{todo}}</li>
+    <button type="button" name="button" ng-click="clicked = !clicked">X</button>
+
+  </ul>
+
+<!--SCRIPT-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="myCtrl.js" charset="utf-8"></script>
 </body>
+
 </html>
